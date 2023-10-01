@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Transform feetPosition;
     public float checkRadius;
     public LayerMask groundMask;
+    public Animator animator;
 
     void Start() {
         playerRB = GetComponent<Rigidbody2D>();
@@ -32,8 +33,11 @@ public class PlayerController : MonoBehaviour
         } else {
             movementInput = 0;
         }
+        animator.SetFloat("Movement", Mathf.Abs(movementInput));
 
         flipSprite();
+        Vector3 previousRotation = transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, previousRotation.y, 0f);
 
         playerRB.velocity = new Vector2(movementInput * playerSpeed, playerRB.velocity.y);
     }
