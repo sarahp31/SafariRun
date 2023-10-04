@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public Transform feetPosition;
     public float checkRadius;
     public LayerMask groundMask;
+    public LayerMask playerMask;
+    private bool onPlayer;
     public Animator animator;
 
     void Start() {
@@ -44,8 +46,9 @@ public class PlayerController : MonoBehaviour
 
     void Update() {
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, checkRadius, groundMask);
+        onPlayer = Physics2D.OverlapCircle(feetPosition.position, checkRadius, playerMask);
 
-        if (isGrounded && Input.GetKey(up)) {
+        if ((isGrounded || onPlayer) && Input.GetKey(up)) {
             playerRB.velocity = Vector2.up * jumpForce;
         }
 
