@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AvailableLevels : MonoBehaviour
 {
-    public List<GameObject> buttons;
+    public List<GameObject> buttons = new List<GameObject>();
     void Start()
     {
         buttons[0].SetActive(LevelUnlock.level1);
