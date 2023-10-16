@@ -49,7 +49,11 @@ public class PlayerController : MonoBehaviour
         onPlayer = Physics2D.OverlapCircle(feetPosition.position, checkRadius, playerMask);
 
         if ((isGrounded || onPlayer) && Input.GetKey(up)) {
+            animator.SetBool("isJumping",true);
             playerRB.velocity = Vector2.up * jumpForce;
+        }
+        else if ((isGrounded || onPlayer) && !Input.GetKey(up)) {
+            animator.SetBool("isJumping",false);
         }
 
     }
