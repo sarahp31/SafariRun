@@ -50,3 +50,9 @@ TagManager:
   - name: Players
     uniqueID: 3844751707
     locked: 0
+  - name: PressurePlateOutline2
+    uniqueID: 42752873
+    locked: 0
+  - name: PressurePlateColor
+    uniqueID: 1216256133
+    locked: 0
