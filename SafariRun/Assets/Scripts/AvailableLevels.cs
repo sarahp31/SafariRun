@@ -14,8 +14,6 @@ public class AvailableLevels : MonoBehaviour
         buttons[4].SetActive(LevelUnlock.level5);
         buttons[5].SetActive(LevelUnlock.level6);
         buttons[6].SetActive(LevelUnlock.level7);
-        buttons[7].SetActive(LevelUnlock.level8);
-        buttons[8].SetActive(LevelUnlock.level9);
     }
 
 }
