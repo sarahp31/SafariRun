@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 4001255}
   - component: {fileID: 4001254}
   - component: {fileID: 4001253}
+  - component: {fileID: 4001256}
   m_Layer: 0
   m_Name: Idle (1)
   m_TagString: Untagged
@@ -210,7 +211,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4001251}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -281,6 +282,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4001256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d9f9a4d52e40143ba4fb6d0f04d91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: -2.57
+  maxY: -0.41
+  isBottom: 0
+  players:
+  - {fileID: 2028836958}
+  - {fileID: 954499599}
 --- !u!1 &162697144
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +380,7 @@ GameObject:
   - component: {fileID: 212509741}
   - component: {fileID: 212509740}
   - component: {fileID: 212509739}
+  - component: {fileID: 212509742}
   m_Layer: 0
   m_Name: Idle (2)
   m_TagString: Untagged
@@ -377,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 212509737}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -2.57, z: 0}
+  m_LocalPosition: {x: 0.5, y: -0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -436,7 +456,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212509737}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -507,6 +527,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &212509742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212509737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d9f9a4d52e40143ba4fb6d0f04d91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: -2.57
+  maxY: -0.41
+  isBottom: 0
+  players:
+  - {fileID: 2028836958}
+  - {fileID: 954499599}
 --- !u!1 &212948919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1414,7 @@ GameObject:
   - component: {fileID: 353048546}
   - component: {fileID: 353048545}
   - component: {fileID: 353048544}
+  - component: {fileID: 353048547}
   m_Layer: 0
   m_Name: Idle (3)
   m_TagString: Untagged
@@ -1451,7 +1490,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353048542}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1522,6 +1561,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &353048547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353048542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d9f9a4d52e40143ba4fb6d0f04d91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: -2.57
+  maxY: -0.41
+  isBottom: 0
+  players:
+  - {fileID: 2028836958}
+  - {fileID: 954499599}
 --- !u!1 &745897247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,7 +2909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1a6ee0f9a8d2b438bf2a1bd59f0e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 954499599}
 --- !u!61 &1224931518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2977,6 +3034,7 @@ GameObject:
   - component: {fileID: 1325060173}
   - component: {fileID: 1325060176}
   - component: {fileID: 1325060175}
+  - component: {fileID: 1325060177}
   m_Layer: 0
   m_Name: Idle
   m_TagString: Untagged
@@ -3045,7 +3103,7 @@ Transform:
   m_GameObject: {fileID: 1325060172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -2.57, z: 0}
+  m_LocalPosition: {x: -3.5, y: -0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3104,7 +3162,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325060172}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3123,6 +3181,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1325060177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325060172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d9f9a4d52e40143ba4fb6d0f04d91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: -2.57
+  maxY: -0.41
+  isBottom: 0
+  players:
+  - {fileID: 2028836958}
+  - {fileID: 954499599}
 --- !u!1 &1406011137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4453,7 +4529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1a6ee0f9a8d2b438bf2a1bd59f0e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 2028836958}
 --- !u!61 &1467869321
 BoxCollider2D:
   m_ObjectHideFlags: 0
