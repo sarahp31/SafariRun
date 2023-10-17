@@ -10,7 +10,8 @@ public class SpikeHead : MonoBehaviour
     private float fallSpeed = 4f;
     private Vector2 temp;
     public bool isBottom;
-    public List<GameObject> players;           
+    public List<GameObject> players; 
+    private bool stopFalling;          
 
     void Update(){
         if (isBottom) {
@@ -22,12 +23,25 @@ public class SpikeHead : MonoBehaviour
             }
         }
         else if (!isBottom) {
-            temp.x = transform.position.x;
-            temp.y = minY;
-            transform.position = Vector2.MoveTowards(transform.position, temp, Time.deltaTime * fallSpeed);
-            if (transform.position.y == minY) {
-                isBottom = true;
+            if (!stopFalling) {
+                temp.x = transform.position.x;
+                temp.y = minY;
+                transform.position = Vector2.MoveTowards(transform.position, temp, Time.deltaTime * fallSpeed);
+                if (transform.position.y == minY) {
+                    isBottom = true;
+                }
             }
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
+            stopFalling = true;
+        }
+    } 
+    void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
+            stopFalling = false;
+        }
+    } 
 }
