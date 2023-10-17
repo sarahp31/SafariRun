@@ -6,8 +6,8 @@ public class CollectFruit : MonoBehaviour
 {
     public GameObject Player;
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.name == Player.name){
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.name == Player.name){
             gameObject.SetActive(false);
         }
     }  
