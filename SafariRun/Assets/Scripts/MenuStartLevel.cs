@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MenuStartLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start(){
+    public void restartLevel(){
         LevelUnlock.level1 = true;
         LevelUnlock.level2 = false;
         LevelUnlock.level3 = false;
