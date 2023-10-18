@@ -1103,6 +1103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 954499599}
+  animator: {fileID: 84975266}
 --- !u!95 &84975266
 Animator:
   serializedVersion: 5
@@ -5197,6 +5198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 2028836958}
+  animator: {fileID: 1772258464}
 --- !u!95 &1772258464
 Animator:
   serializedVersion: 5

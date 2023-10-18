@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1827068670}
+  animator: {fileID: 226745009}
 --- !u!61 &226745006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1318,6 +1319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 80933800}
+  animator: {fileID: 580621404}
 --- !u!61 &580621401
 BoxCollider2D:
   m_ObjectHideFlags: 0
