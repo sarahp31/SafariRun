@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Options : MonoBehaviour
 {
     void Update(){
-        if (Input.GetKey("e")) {
+        if (Input.GetKey("o")) {
             SceneManager.LoadScene(2);
         }
     }
