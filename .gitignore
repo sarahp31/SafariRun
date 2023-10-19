@@ -70,3 +70,6 @@ sysinfo.txt
 # Temporary auto-generated Android Assets
 /SafariRun/[Aa]ssets/[Ss]treamingAssets/aa.meta
 /SafariRun/[Aa]ssets/[Ss]treamingAssets/aa/*
+#paid assets
+/SafariRun/Assets/craftpix-net-773697-pirate-bay-tileset-pixel-art/
+/SafariRun/Assets/craftpix-net-773697-pirate-bay-tileset-pixel-art.meta
