@@ -10,11 +10,14 @@ public class PlayerController : MonoBehaviour
     public string left;
     public string right;
     public string up;
-    private Rigidbody2D playerRB;
+    private Rigidbody2D playerRBY;
+    private Rigidbody2D playerRBX;
     private bool facingLeft;
     private bool facingRight;
     private bool isGrounded;
+    private bool contactWithRightSide;
     public Transform feetPosition;
+    public Transform rightPosition;
     public float checkRadius;
     public LayerMask groundMask;
     public LayerMask playerMask;
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     void Start() {
-        playerRB = GetComponent<Rigidbody2D>();
+        playerRBY = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate() {
@@ -40,17 +43,23 @@ public class PlayerController : MonoBehaviour
         flipSprite();
         Vector3 previousRotation = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0f, previousRotation.y, 0f);
-
-        playerRB.velocity = new Vector2(movementInput * playerSpeed, playerRB.velocity.y);
+        playerRBY.velocity = new Vector2(movementInput * playerSpeed, playerRBY.velocity.y);
+        playerRBX.velocity = new Vector2( playerRBX.velocity.x, movementInput * playerSpeed);
     }
 
     void Update() {
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, checkRadius, groundMask);
+        contactWithRightSide = Physics2D.OverlapCircle(rightPosition.position, checkRadius, groundMask);
         onPlayer = Physics2D.OverlapCircle(feetPosition.position, checkRadius, playerMask);
 
         if ((isGrounded || onPlayer) && Input.GetKey(up)) {
             animator.SetBool("isJumping",true);
-            playerRB.velocity = Vector2.up * jumpForce;
+            playerRBY.velocity = Vector2.up * jumpForce;
+        }
+        else if ((contactWithRightSide || onPlayer) && Input.GetKey(up)) {
+            animator.SetBool("isJumping", true);
+            playerRBY.velocity = (Vector2.up * jumpForce);
+            playerRBX.velocity = (Vector2.left * jumpForce);
         }
         else if ((isGrounded || onPlayer) && !Input.GetKey(up)) {
             animator.SetBool("isJumping",false);
