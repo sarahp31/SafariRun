@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour
     public string left;
     public string right;
     public string up;
-    private Rigidbody2D playerRBY;
-    private Rigidbody2D playerRBX;
+    private Rigidbody2D playerRB;
     private bool facingLeft;
     private bool facingRight;
     private bool isGrounded;
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     void Start() {
-        playerRBY = GetComponent<Rigidbody2D>();
+        playerRB = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate() {
@@ -43,8 +42,7 @@ public class PlayerController : MonoBehaviour
         flipSprite();
         Vector3 previousRotation = transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0f, previousRotation.y, 0f);
-        playerRBY.velocity = new Vector2(movementInput * playerSpeed, playerRBY.velocity.y);
-        playerRBX.velocity = new Vector2( playerRBX.velocity.x, movementInput * playerSpeed);
+        playerRB.velocity = new Vector2(movementInput * playerSpeed, playerRB.velocity.y);
     }
 
     void Update() {
@@ -54,13 +52,13 @@ public class PlayerController : MonoBehaviour
 
         if ((isGrounded || onPlayer) && Input.GetKey(up)) {
             animator.SetBool("isJumping",true);
-            playerRBY.velocity = Vector2.up * jumpForce;
+            playerRB.velocity = Vector2.up * jumpForce;
         }
-        else if ((contactWithRightSide || onPlayer) && Input.GetKey(up)) {
-            animator.SetBool("isJumping", true);
-            playerRBY.velocity = (Vector2.up * jumpForce);
-            playerRBX.velocity = (Vector2.left * jumpForce);
-        }
+        // else if ((contactWithRightSide || onPlayer) && Input.GetKey(up)) {
+        //     animator.SetBool("isJumping", true);
+        //     playerRB.velocity = Vector2.up * jumpForce;
+        //     contactWithRightSide =  false;
+        // }
         else if ((isGrounded || onPlayer) && !Input.GetKey(up)) {
             animator.SetBool("isJumping",false);
         }
