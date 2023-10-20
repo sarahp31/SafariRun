@@ -8,6 +8,7 @@ public class EndGame : MonoBehaviour
     public int sizeList;
     private bool isNotOver;
     public GameObject trophy;
+    public Animator animator;
 
     void Start(){
         trophy.SetActive(false);
@@ -23,6 +24,12 @@ public class EndGame : MonoBehaviour
 
         if (!isNotOver) {
             trophy.SetActive(true);
+            StartCoroutine(timer());      
         }
     } 
+
+    IEnumerator timer() {
+        yield return new WaitForSeconds(0.4f);
+        animator.SetTrigger("appear");
+    }
 }
