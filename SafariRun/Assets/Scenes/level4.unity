@@ -1249,7 +1249,7 @@ GameObject:
   - component: {fileID: 560744142}
   - component: {fileID: 560744141}
   - component: {fileID: 560744140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Brown Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09d812bb91b6b34eb404706986cb5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: -2.718611
+  minY: -2.7
   maxY: 1.68
 --- !u!212 &560744143
 SpriteRenderer:
@@ -1403,7 +1403,7 @@ Transform:
   m_GameObject: {fileID: 560744139}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: -3.9, z: 0}
+  m_LocalPosition: {x: -0.54, y: -2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

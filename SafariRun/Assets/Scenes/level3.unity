@@ -2034,7 +2034,7 @@ GameObject:
   - component: {fileID: 351092614}
   - component: {fileID: 351092616}
   - component: {fileID: 351092615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Brown Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
