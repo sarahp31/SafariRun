@@ -9,9 +9,12 @@ public class EndGame : MonoBehaviour
     private bool isNotOver;
     public GameObject trophy;
     public Animator animator;
+    public AudioClip soundWin;
+    private AudioSource audioSource;
 
     void Start(){
         trophy.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update(){
@@ -30,6 +33,7 @@ public class EndGame : MonoBehaviour
 
     IEnumerator timer() {
         yield return new WaitForSeconds(0.4f);
+        audioSource.PlayOneShot(soundWin);
         animator.SetTrigger("appear");
     }
 }
