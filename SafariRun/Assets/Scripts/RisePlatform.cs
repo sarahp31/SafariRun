@@ -25,14 +25,14 @@ public class RisePlatform : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
-            stopFalling = true;
-        }
-    } 
-    void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
-            stopFalling = false;
-        }
-    } 
+    // void OnCollisionEnter2D(Collision2D collision) {
+    //     if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
+    //         stopFalling = true;
+    //     }
+    // } 
+    // void OnCollisionExit2D(Collision2D collision) {
+    //     if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
+    //         stopFalling = false;
+    //     }
+    // } 
 }
