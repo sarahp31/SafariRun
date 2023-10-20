@@ -22,9 +22,12 @@ public class PlayerController : MonoBehaviour
     public LayerMask playerMask;
     private bool onPlayer;
     public Animator animator;
+    public AudioClip soundJump;
+    private AudioSource audioSource;
 
     void Start() {
         playerRB = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate() {
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour
         if ((isGrounded || onPlayer) && Input.GetKey(up)) {
             animator.SetBool("isJumping",true);
             playerRB.velocity = Vector2.up * jumpForce;
+            audioSource.PlayOneShot(soundJump);
         }
         // else if ((contactWithRightSide || onPlayer) && Input.GetKey(up)) {
         //     animator.SetBool("isJumping", true);
