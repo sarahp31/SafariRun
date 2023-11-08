@@ -1575,7 +1575,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1836164354}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelManagerName, Assembly-CSharp
         m_MethodName: changeScene
         m_Mode: 1
         m_Arguments:
@@ -6915,10 +6915,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1836164352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba56b4c7b54842246af38e64f345c059, type: 3}
+  m_Script: {fileID: 11500000, guid: 3af263095e7c5864c963e6ec0c86bde7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 1
+  scene: SelectLevel
 --- !u!1 &1842643952
 GameObject:
   m_ObjectHideFlags: 0

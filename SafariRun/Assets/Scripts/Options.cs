@@ -7,7 +7,7 @@ public class Options : MonoBehaviour
 {
     void Update(){
         if (Input.GetKey("o")) {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("Scenes/Options");
         }
     }
 }
