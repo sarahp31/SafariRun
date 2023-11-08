@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip soundJump;
     private AudioSource audioSource;
 
+    //Mobile
+    public Joystick joystick;
+
     void Start() {
         playerRB = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
@@ -35,6 +38,12 @@ public class PlayerController : MonoBehaviour
             movementInput = 1;
             facingRight = true;
         } else if (Input.GetKey(left)) {
+            movementInput = -1;
+            facingLeft = true;
+        } else if (joystick.Horizontal > 0.3f) {
+            movementInput = 1;
+            facingRight = true;
+        } else if (joystick.Horizontal < -0.3f) {
             movementInput = -1;
             facingLeft = true;
         } else {
@@ -53,7 +62,7 @@ public class PlayerController : MonoBehaviour
         contactWithRightSide = Physics2D.OverlapCircle(rightPosition.position, checkRadius, groundMask);
         onPlayer = Physics2D.OverlapCircle(feetPosition.position, checkRadius, playerMask);
 
-        if ((isGrounded || onPlayer) && Input.GetKey(up)) {
+        if ((isGrounded || onPlayer) && (Input.GetKey(up) || joystick.Vertical > 0.3f)) {
             animator.SetBool("isJumping",true);
             playerRB.velocity = Vector2.up * jumpForce;
             audioSource.PlayOneShot(soundJump);
@@ -63,7 +72,7 @@ public class PlayerController : MonoBehaviour
         //     playerRB.velocity = Vector2.up * jumpForce;
         //     contactWithRightSide =  false;
         // }
-        else if ((isGrounded || onPlayer) && !Input.GetKey(up)) {
+        else if ((isGrounded || onPlayer) && !(Input.GetKey(up) || joystick.Vertical > 0.3f)) {
             animator.SetBool("isJumping",false);
         }
 
@@ -72,10 +81,10 @@ public class PlayerController : MonoBehaviour
     void flipSprite() {
         if (movementInput < 0 && facingRight){
             transform.Rotate(0f, 180f, 0f);
-            facingRight = false;
+            facingRight = !facingRight;
         } else if (movementInput > 0 && facingLeft){
             transform.Rotate(0f, 180f, 0f);
-            facingLeft = false;
+            facingLeft = !facingLeft;
         }
     }
 
