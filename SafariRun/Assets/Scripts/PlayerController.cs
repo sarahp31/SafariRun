@@ -40,10 +40,10 @@ public class PlayerController : MonoBehaviour
         } else if (Input.GetKey(left)) {
             movementInput = -1;
             facingLeft = true;
-        } else if (joystick.Horizontal > 0.3f) {
+        } else if (joystick.Horizontal > 0.2f) {
             movementInput = 1;
             facingRight = true;
-        } else if (joystick.Horizontal < -0.3f) {
+        } else if (joystick.Horizontal < -0.2f) {
             movementInput = -1;
             facingLeft = true;
         } else {
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         contactWithRightSide = Physics2D.OverlapCircle(rightPosition.position, checkRadius, groundMask);
         onPlayer = Physics2D.OverlapCircle(feetPosition.position, checkRadius, playerMask);
 
-        if ((isGrounded || onPlayer) && (Input.GetKey(up) || joystick.Vertical > 0.3f)) {
+        if ((isGrounded || onPlayer) && (Input.GetKey(up) || joystick.Vertical > 0.2f)) {
             animator.SetBool("isJumping",true);
             playerRB.velocity = Vector2.up * jumpForce;
             audioSource.PlayOneShot(soundJump);
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         //     playerRB.velocity = Vector2.up * jumpForce;
         //     contactWithRightSide =  false;
         // }
-        else if ((isGrounded || onPlayer) && !(Input.GetKey(up) || joystick.Vertical > 0.3f)) {
+        else if ((isGrounded || onPlayer) && !(Input.GetKey(up) || joystick.Vertical > 0.2f)) {
             animator.SetBool("isJumping",false);
         }
 

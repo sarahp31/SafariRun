@@ -24,6 +24,7 @@ public class MapAnim : MonoBehaviour
     private float speed = 2f;
 
     public int world;
+    public static int currentWorld;
     private int wl1;
     private int wl2;
 
@@ -31,6 +32,7 @@ public class MapAnim : MonoBehaviour
     private bool localAnimated2;
 
     void Start() {
+        currentWorld = world;
         if (world == 1) {
             level2 = (LevelUnlock.level2) ? true : false;
             level3 = (LevelUnlock.level3) ? true : false;
