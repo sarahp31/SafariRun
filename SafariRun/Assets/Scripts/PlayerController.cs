@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public string up;
     private Rigidbody2D playerRB;
     private bool facingLeft;
-    private bool facingRight;
+    private bool facingRight = true;
     private bool isGrounded;
     private bool contactWithRightSide;
     public Transform feetPosition;
@@ -26,7 +26,9 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
 
     //Mobile
-    public Joystick joystick;
+    public Joystick joystick1;
+    public float jumpButtonExt;
+    private float jumpButton;
 
     void Start() {
         playerRB = GetComponent<Rigidbody2D>();
@@ -34,16 +36,17 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        jumpButton = jumpButtonExt;
         if (Input.GetKey(right)) {
             movementInput = 1;
             facingRight = true;
         } else if (Input.GetKey(left)) {
             movementInput = -1;
             facingLeft = true;
-        } else if (joystick.Horizontal > 0.2f) {
+        } else if (joystick1.Horizontal > 0.3f) {
             movementInput = 1;
             facingRight = true;
-        } else if (joystick.Horizontal < -0.2f) {
+        } else if (joystick1.Horizontal < -0.3f) {
             movementInput = -1;
             facingLeft = true;
         } else {
@@ -62,17 +65,12 @@ public class PlayerController : MonoBehaviour
         contactWithRightSide = Physics2D.OverlapCircle(rightPosition.position, checkRadius, groundMask);
         onPlayer = Physics2D.OverlapCircle(feetPosition.position, checkRadius, playerMask);
 
-        if ((isGrounded || onPlayer) && (Input.GetKey(up) || joystick.Vertical > 0.2f)) {
+        if ((isGrounded || onPlayer) && (Input.GetKey(up) || jumpButton > 0.3f)) {
             animator.SetBool("isJumping",true);
             playerRB.velocity = Vector2.up * jumpForce;
             audioSource.PlayOneShot(soundJump);
         }
-        // else if ((contactWithRightSide || onPlayer) && Input.GetKey(up)) {
-        //     animator.SetBool("isJumping", true);
-        //     playerRB.velocity = Vector2.up * jumpForce;
-        //     contactWithRightSide =  false;
-        // }
-        else if ((isGrounded || onPlayer) && !(Input.GetKey(up) || joystick.Vertical > 0.2f)) {
+        else if ((isGrounded || onPlayer) && !(Input.GetKey(up) || jumpButton > 0.3f)) {
             animator.SetBool("isJumping",false);
         }
 
@@ -81,10 +79,10 @@ public class PlayerController : MonoBehaviour
     void flipSprite() {
         if (movementInput < 0 && facingRight){
             transform.Rotate(0f, 180f, 0f);
-            facingRight = !facingRight;
+            facingRight = false;
         } else if (movementInput > 0 && facingLeft){
             transform.Rotate(0f, 180f, 0f);
-            facingLeft = !facingLeft;
+            facingLeft = false;
         }
     }
 
