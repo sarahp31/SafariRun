@@ -18,15 +18,33 @@ public class PressurePlate : MonoBehaviour
 
             renderer.color = Color.green;
             isActivated = true;
+            StartCoroutine(timer1());
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
-            var renderer = PressurePlateColor.GetComponent<SpriteRenderer>();
+    IEnumerator timer1() {
+        yield return new WaitForSeconds(4.0f);
+        var renderer = PressurePlateColor.GetComponent<SpriteRenderer>();
 
-            renderer.color = Color.red;
-            isActivated = false;
-        }
-    }
+        renderer.color = Color.red;
+        isActivated = false;
+        StartCoroutine(timer2());
+    } 
+
+    IEnumerator timer2() {
+        yield return new WaitForSeconds(4.0f);
+        var renderer = PressurePlateColor.GetComponent<SpriteRenderer>();
+
+        renderer.color = Color.green;
+        isActivated = true;
+        StartCoroutine(timer1());
+    } 
+    // void OnCollisionExit2D(Collision2D collision) {
+    //     if (collision.gameObject.name == "Player_1" || collision.gameObject.name == "Player_2"){
+    //         var renderer = PressurePlateColor.GetComponent<SpriteRenderer>();
+
+    //         renderer.color = Color.red;
+    //         isActivated = false;
+    //     }
+    // }
 }
